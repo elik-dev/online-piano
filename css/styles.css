@@ -11,22 +11,28 @@ html {
 }
 
 body {
-    height: 100vh;
     margin: 0;
+    background: url('../img/background.jpg') left no-repeat;
+    background-size: cover;
+}
+
+.container {
     background-color: rgba(230, 230, 250, 0.5);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    backdrop-filter: blur(3px);
 }
 
 h1 {
-    margin: 0;
     padding: 16px;
     align-self: stretch;
     text-align: center;
-    background-color: rgb(85, 85, 129);
+    background-color: #555581;
 }
+
 h1,
 footer,
 footer a {
@@ -34,7 +40,7 @@ footer a {
 }
 
 footer {
-    background-color: rgb(85, 85, 129);
+    background-color: #555581;
     padding: 16px;
     align-self: stretch;
     text-align: center;
@@ -42,9 +48,31 @@ footer {
 
 /* piano styles */
 .piano {
-    background-color: rgb(85, 85, 129);
+    background-color: #c7c8d1;
     padding: 32px;
     border-radius: 8px;
+    border: solid 2px #222222;
+    box-shadow: 0 4px 16px rgba(61, 61, 61, 0.33);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 48px;
+}
+
+.top-panel {
+    display: flex;
+    justify-content: space-between;
+}
+
+.brand,
+h1 {
+    margin: 0;
+}
+
+.speaker img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 4px;
 }
 
 .keys {
@@ -69,15 +97,36 @@ footer {
 .white {
     width: 44px;
     height: 252px;
-    background-color: rgb(255, 255, 255);
+    background: linear-gradient(180deg, #bebebe 0%, #ffffff 5%, #ffffff 90%, #bebebe 100%);
     border: solid rgb(27, 27, 27);
     border-width: 2px 1px;
+    box-shadow: 0px 12px 2px rgba(61, 61, 61, 0.33);
+}
+
+.white:hover {
+    background: linear-gradient(180deg, #bebebe 0%, #dbdbdb 5%, #ffffff 90%, #bebebe 100%);
+}
+
+.white:active {
+    background: linear-gradient(180deg, #ffffff 0%, #bebebe 5%, #bebebe 100%);
+    box-shadow: 0px 4px 2px rgba(61, 61, 61, 0.33);
 }
 
 .black {
     width: 22px;
     height: 160px;
-    background-color: rgb(46, 46, 46);
+    background: linear-gradient(180deg, #000000 0%, #707070 80%, #000000 100%);
     position: relative;
     left: 32px;
+    border: solid #1b1b1b 2px;
+    box-shadow: 0px 9px 2px rgba(61, 61, 61, 0.33);
+}
+
+.black:hover {
+    background: linear-gradient(180deg, #000000 0%, #474747 80%, #000000 100%);
+}
+
+.black:active {
+    background: linear-gradient(180deg, #707070 0%, #000000 70%, #000000 100%);
+    box-shadow: 0px 3px 2px rgba(61, 61, 61, 0.33);
 }
