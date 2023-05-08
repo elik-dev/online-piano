@@ -1,4 +1,6 @@
 // keyboard input section
+let currentKeydowns = [];  // experimental
+
 function addPressEffects(event) {
     const domElement = document.querySelector(`.key.${event.code}`);
     if (!domElement) {
@@ -11,9 +13,10 @@ function addPressEffects(event) {
 }
 function playSoundOnPress(event) {
     const audio = document.querySelector(`audio.${event.code}`)
-    if (!audio || event.repeat) return; // stop the function immediately
+    if (!audio || event.repeat || currentKeydowns.includes(event.code)) return; // stop the function immediately  // experimental
     audio.currentTime = 0;
     audio.play();
+    currentKeydowns.push(event.code); // experimental
 }
 function pressPianoKey(event) {
     playSoundOnPress(event);
@@ -23,6 +26,7 @@ function releasePianoKey(event) {
     const key = document.querySelector(`.key.${event.code}`);
     if (!key) return;
     key.classList.remove("active-white", "active-black");
+    currentKeydowns = currentKeydowns.filter(keydown => keydown !== event.code); // experimental
 }
 
 window.addEventListener("keyup", releasePianoKey);
