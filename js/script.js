@@ -12,7 +12,7 @@ function addPressEffects(event) {
     }
 }
 function playSoundOnPress(event) {
-    const audio = document.querySelector(`audio.${event.code}`)
+    const audio = document.querySelector(`audio.${event.code}`);
     if (!audio || event.repeat || currentKeydowns.includes(event.code)) return; // stop the function immediately
     audio.currentTime = 0;
     audio.play();
