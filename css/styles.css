@@ -29,7 +29,6 @@ body {
 h1 {
     padding: 16px;
     align-self: stretch;
-    text-align: center;
     background-color: #555581;
 }
 
@@ -48,7 +47,7 @@ footer {
 
 /* piano styles */
 .piano {
-    background-color: #c7c8d1;
+    background-color: #d8d9df;
     padding: 32px;
     border-radius: 8px;
     border: solid 2px #222222;
@@ -57,6 +56,7 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     gap: 48px;
+    user-select: none;
 }
 
 .top-panel {
@@ -84,6 +84,11 @@ h1 {
     display: inline-block;
     margin: 0;
     border-radius: 0 0 8px 8px;
+    transition: box-shadow ease-in 50ms;
+    /* experimental */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .white:first-of-type {
@@ -100,17 +105,18 @@ h1 {
     background: linear-gradient(180deg, #bebebe 0%, #ffffff 5%, #ffffff 90%, #bebebe 100%);
     border: solid rgb(27, 27, 27);
     border-width: 2px 1px;
-    box-shadow: 0px 12px 2px rgba(61, 61, 61, 0.33);
+    box-shadow: 0px 12px 4px rgba(61, 61, 61, 0.33);
 }
 
-.white:hover {
+.hover-white {
     background: linear-gradient(180deg, #bebebe 0%, #dbdbdb 5%, #ffffff 90%, #bebebe 100%);
 }
 
-.white:active {
+.active-white {
     background: linear-gradient(180deg, #ffffff 0%, #bebebe 5%, #bebebe 100%);
-    box-shadow: 0px 4px 2px rgba(61, 61, 61, 0.33);
+    box-shadow: 0px 4px 4px rgba(61, 61, 61, 0.33);
 }
+
 
 .black {
     width: 22px;
@@ -118,15 +124,27 @@ h1 {
     background: linear-gradient(180deg, #000000 0%, #707070 80%, #000000 100%);
     position: relative;
     left: 32px;
+    top: -2px;
     border: solid #1b1b1b 2px;
-    box-shadow: 0px 9px 2px rgba(61, 61, 61, 0.33);
+    box-shadow: 0px 9px 4px rgba(61, 61, 61, 0.33);
 }
 
-.black:hover {
+.hover-black {
     background: linear-gradient(180deg, #000000 0%, #474747 80%, #000000 100%);
 }
 
-.black:active {
+.active-black {
     background: linear-gradient(180deg, #707070 0%, #000000 70%, #000000 100%);
-    box-shadow: 0px 3px 2px rgba(61, 61, 61, 0.33);
+    box-shadow: 0px 3px 4px rgba(61, 61, 61, 0.33);
+}
+
+.keys span {
+    display: inline-block;
+    text-align: center;
+    margin: auto 0 20px;
+    pointer-events: none;
+}
+
+.black span {
+    color: white;
 }
